@@ -1,5 +1,15 @@
 # Go Xrandr wrapper
 
+## Config
+```shell script
+cp display-preferences.json ~/
+```
+
+## Edit preferences file
+```shell script
+vim ~/display-preferences.json
+```
+
 ## Build
 
 ```shell script

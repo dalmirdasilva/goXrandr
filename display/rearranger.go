@@ -122,12 +122,12 @@ func scanConnectedOutputs() (outputs []string) {
 func readPreferences() {
 	home := os.Getenv("HOME")
 	path := filepath.Join(home, "display-preferences.json")
-	log.Println("Config path from: ", path)
+	log.Println("Opening config file:", path)
 	f, err := os.Open(path)
-	defer f.Close()
 	if err != nil {
-		log.Panic("No config file.", err)
+		log.Panic("Error while loading config file.", err)
 	}
+	defer f.Close()
 	content, _ := ioutil.ReadAll(f)
 	if err := json.Unmarshal(content, &preferences); err != nil {
 		log.Panic("Cannot understand the config file.", err)
